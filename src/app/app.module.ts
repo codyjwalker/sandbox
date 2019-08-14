@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TitleCaseComponent } from './title-case/title-case.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TitleCaseComponent
   ],
   imports: [
     BrowserModule,
