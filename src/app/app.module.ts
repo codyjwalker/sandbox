@@ -1,9 +1,14 @@
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthorsComponent } from './authors/authors.component';
+import { AuthorsService } from './authors.service';
+import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCaseComponent } from './title-case/title-case.component';
 import { TitleCasePipe } from './title-case.pipe';
 
@@ -11,14 +16,20 @@ import { TitleCasePipe } from './title-case.pipe';
   declarations: [
     AppComponent,
     TitleCaseComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    AuthorsComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule,
+    FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    AuthorsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
