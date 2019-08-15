@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-favorite',
@@ -8,8 +7,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class FavoriteComponent implements OnInit {
 
-  isFavorite: boolean;
-  faCoffee = faCoffee;
+  @Input() isFavorite: boolean;
 
   constructor() { }
 
