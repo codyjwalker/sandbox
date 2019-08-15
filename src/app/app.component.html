@@ -1,6 +1,8 @@
 <h1>SANDBOX</h1><br><br>
-<app-title-case></app-title-case>
-<br><br><br>
 <app-authors></app-authors>
 <br><br><br>
-<app-favorite [is-favorite]="post.isFavorite"></app-favorite>
+<app-title-case></app-title-case>
+<br><br><br>
+<app-favorite [is-favorite]="post.isFavorite"
+  (change)="onFavoriteChanged($event)">
+</app-favorite>
