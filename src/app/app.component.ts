@@ -16,6 +16,12 @@ export class AppComponent {
     isFavorite: true
   }
 
+  tweet = {
+    body: 'This right here is better than a damn tweet...',
+    isLiked: false,
+    numLikes: 68
+  }
+
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log("FAVORITE CHANGED", eventArgs);
   }

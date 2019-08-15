@@ -1,13 +1,17 @@
 <h1>SANDBOX</h1>
 <br><br>
+
 <app-authors></app-authors>
 <br><br><br>
+
 <app-title-case></app-title-case>
 <br><br><br>
+
 <app-favorite [is-favorite]="post.isFavorite"
   (change)="onFavoriteChanged($event)">
 </app-favorite>
 <br><br><br>
+
 <app-panel>
   <ng-container class="heading">
     <h1>Heading</h1>
@@ -17,3 +21,11 @@
     <p>Here is a paragraph for the body.</p>
   </div>
 </app-panel>
+<br><br><br>
+
+<app-like
+  [numLikes]="tweet.numLikes"
+  [isActive]="tweet.isLiked"
+  [body]="tweet.body"
+  >
+</app-like>
