@@ -1,4 +1,5 @@
-<h1>SANDBOX</h1><br><br>
+<h1>SANDBOX</h1>
+<br><br>
 <app-authors></app-authors>
 <br><br><br>
 <app-title-case></app-title-case>
@@ -6,3 +7,13 @@
 <app-favorite [is-favorite]="post.isFavorite"
   (change)="onFavoriteChanged($event)">
 </app-favorite>
+<br><br><br>
+<app-panel>
+  <div class="heading">
+    <h1>Heading</h1>
+  </div>
+  <div class="body">
+    <h2>Body</h2>
+    <p>Here is a paragraph for the body.</p>
+  </div>
+</app-panel>

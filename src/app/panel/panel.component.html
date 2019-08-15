@@ -1,0 +1,15 @@
+<p>Panel Example (Actually Card Example since Panels were depricated):</p>
+<br>
+<div class="container">
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <ng-content select=".heading"></ng-content>
+      </li>
+      <li class="list-group-item">
+        <ng-content select=".body"></ng-content>
+      </li>
+    </ul>
+  </div>
+</div>
+<button class="btn btn-primary">Save</button>
