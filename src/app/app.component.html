@@ -1,16 +1,31 @@
 <h1>SANDBOX</h1>
 <br><br>
 
+
+<br><br><br>
+<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
+  Another List of courses
+</ng-template>
+<ng-template #noCourses>
+  No courses yet =(
+</ng-template>
+<br><br><br>
+
+
 <app-authors></app-authors>
 <br><br><br>
 
+
 <app-title-case></app-title-case>
 <br><br><br>
+
 
 <app-favorite [is-favorite]="post.isFavorite"
   (change)="onFavoriteChanged($event)">
 </app-favorite>
 <br><br><br>
+
 
 <app-panel>
   <ng-container class="heading">
@@ -23,9 +38,12 @@
 </app-panel>
 <br><br><br>
 
+
 <app-like
   [numLikes]="tweet.numLikes"
   [isActive]="tweet.isLiked"
   [body]="tweet.body"
   >
 </app-like>
+
+
