@@ -9,7 +9,15 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+/*******************************************************************************
+ *                                Fields
+ ******************************************************************************/
+
   title = 'sandbox';
+
+  /* For ngStyle */
+  canSave = true;
 
   /* For ngFor */
   courses3 = [];
@@ -34,7 +42,9 @@ export class AppComponent {
     numLikes: 68
   }
 
-
+/*******************************************************************************
+ *                                Methods
+ ******************************************************************************/
 
   /* For ngFor */
   loadCourses() {
