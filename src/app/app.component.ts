@@ -14,7 +14,18 @@ export class AppComponent {
  *                                Fields
  ******************************************************************************/
 
+  /* Title of the page. */
   title = 'sandbox';
+
+  /* For Safe Traversal Operator */
+  task = {
+    title: 'Review applications',
+    assignee: null,
+    assigneee: {
+      firstName: 'Meech',
+      lastName: 'Matriix'
+    }
+  }
 
   /* For ngStyle */
   canSave = true;
@@ -45,6 +56,11 @@ export class AppComponent {
 /*******************************************************************************
  *                                Methods
  ******************************************************************************/
+
+  /* For ngStyle */
+  canSaveToggle() {
+    this.canSave = !this.canSave;
+  }
 
   /* For ngFor */
   loadCourses() {
