@@ -1,6 +1,12 @@
 <h1>SANDBOX</h1>
 <br><br><br>
 
+<!-- Example of Creating Custom Directives -->
+<input type="text" [appInputFormat]="'uppercase'">
+<br>
+<input type="text" [appInputFormat]="'lowercase'">
+<br><br><br>
+
 <!-- Exammple of Safe Traversal Operator -->
 <span>{{ task.assignee?.firstName }} {{ task.assignee?.lastName }}</span>
 <br><br><br>
