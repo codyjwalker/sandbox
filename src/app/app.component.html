@@ -1,6 +1,19 @@
 <h1>SANDBOX</h1>
 <br><br>
 
+<!-- Example of ngFor with course objects -->
+<button (click)="loadCourses()">Load Courses</button>
+<ul>
+  <li *ngFor="let course of courses3; trackBy: trackCourse; index as i">
+    {{ i }} - {{ course.name }} 
+    <button (click)="onChange(course)">Change</button>
+    <button (click)="onRemove(course)">Remove</button>
+  </li>
+<button (click)="onAdd()">Add</button>
+</ul>
+<br><br><br>
+
+
 <!-- nav related things from Bootstrap -->
 <ul class="nav nav-pills">
   <li class="nav-item">
@@ -17,6 +30,7 @@
   <div *ngSwitchCase="'list'">List View Content</div>
   <div *ngSwitchDefault>Default</div>
 </div>
+<br><br><br>
 
 
 <!-- Only puts the respective dev in the DOM -->

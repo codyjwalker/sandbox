@@ -11,8 +11,11 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
 export class AppComponent {
   title = 'sandbox';
 
+  /* For ngFor */
+  courses3 = [];
+
   /* For ngSwitchCase */
-  viewMode='something';
+  viewMode='map';
 
   /* For *ngIf and [hidden]. */
   courses = [1, 2];
@@ -31,8 +34,40 @@ export class AppComponent {
     numLikes: 68
   }
 
+
+
+  /* For ngFor */
+  loadCourses() {
+    this.courses3 = [
+    {id: 1, name: 'course1'},
+    {id: 2, name: 'course2'},
+    {id: 3, name: 'course3'}];
+ }
+
+  /* For ngFor & TrackBy */
+  trackCourse(index, course) {
+    return course ? course.id : undefined;
+  }
+
+  /* For ngFor */
+  onChange(course) {
+    course.name = 'UPDATED';
+  }
+
+  /* For ngFor */
+  onRemove(course) {
+    let index = this.courses3.indexOf(course);
+    this.courses3.splice(index, 1);
+  }
+
+  /* For ngFor */
+  onAdd() {
+    this.courses3.push({ id: 4, name: 'anotha1'});
+  }
+
   /* For Favorite component */
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log("FAVORITE CHANGED", eventArgs);
   }
+
 }
