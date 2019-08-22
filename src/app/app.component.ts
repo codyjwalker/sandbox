@@ -20,8 +20,7 @@ export class AppComponent {
   /* For Safe Traversal Operator */
   task = {
     title: 'Review applications',
-    assignee: null,
-    assigneee: {
+    assignee: {
       firstName: 'Meech',
       lastName: 'Matriix'
     }
