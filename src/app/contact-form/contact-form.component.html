@@ -43,7 +43,33 @@
       rows="10">
     </textarea>
   </div>
-  <button class="btn btn-primary">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isSubscribed">
+      Subscribe to mailing service.
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="contactMethod">Contact Method.</label>
+    <select
+      ngModel
+      id="contactMethod"
+      class="form-control"
+      name="contactMethod">
+      <!--Not sure if below line is necessary any more -->
+      <option value=""></option>
+      <option
+      *ngFor="let method of contactMethods"
+      [value]="method.id">
+      <!-- Bind [ngValue]="method" if want entire object not just str id -->
+        {{ method.name }}
+      </option>
+    </select>
+  </div>
+  <p>
+    {{ f.value | json }}
+  </p>
+  <button class="btn btn-primary" [disabled]="!f.valid">
     Submit
   </button>
 </form>
