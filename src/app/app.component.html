@@ -54,25 +54,43 @@
 <!-- nav related things from Bootstrap -->
 <ul class="nav nav-pills">
   <li class="nav-item">
-    <a [class.active]="viewMode == 'map'" class="nav-link" data-toggle="pill"
-      (click)="viewMode = 'map'">Map View</a>
+    <a
+      [class.active]="viewMode == 'map'"
+      class="nav-link"
+      data-toggle="pill"
+      (click)="viewMode = 'map'">
+      Map View
+    </a>
   </li>
   <li class="nav-item">
-    <a [class.active]="viewMode == 'list'" class="nav-link" data-toggle="pill"
-      (click)="viewMode = 'list'">List View</a>
+    <a
+      [class.active]="viewMode == 'list'"
+      class="nav-link"
+      data-toggle="pill"
+      (click)="viewMode = 'list'">
+      List View
+    </a>
   </li>
 </ul>
 <div [ngSwitch]="viewMode">
-  <div *ngSwitchCase="'map'">Map View Content</div>
-  <div *ngSwitchCase="'list'">List View Content</div>
-  <div *ngSwitchDefault>Default</div>
+  <div *ngSwitchCase="'map'">
+    Map View Content
+  </div>
+  <div *ngSwitchCase="'list'">
+    List View Content
+  </div>
+  <div *ngSwitchDefault>
+    Default
+  </div>
 </div>
 <br><br><br>
 
 
 <!-- Only puts the respective dev in the DOM -->
 <br><br><br>
-<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+<div
+  *ngIf="courses.length > 0; then coursesList else noCourses">
+</div>
 <ng-template #coursesList>
   List of courses
 </ng-template>
@@ -81,10 +99,12 @@
 </ng-template>
 <br>
 <!-- Puts BOTH devs in the DOM, just hides one -->
-<div [hidden]="courses2.length == 0">
+<div
+  [hidden]="courses2.length == 0">
   Another list of courses
 </div>
-<div [hidden]="courses2.length > 0">
+<div
+  [hidden]="courses2.length > 0">
   No additional courses yet D=
 </div>
 <br><br><br>
@@ -98,7 +118,8 @@
 <br><br><br>
 
 
-<app-favorite [is-favorite]="post.isFavorite"
+<app-favorite
+  [is-favorite]="post.isFavorite"
   (change)="onFavoriteChanged($event)">
 </app-favorite>
 <br><br><br>
