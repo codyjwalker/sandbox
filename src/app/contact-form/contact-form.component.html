@@ -1,4 +1,4 @@
-<h2>Contact Form Example</h2>
+<h2>Contact Form Example:</h2>
 <form #f="ngForm" (ngSubmit)="submit(f)">
   <div ngModelGroup="contact" #contact="ngModelGroup">
     <div *ngIf="!contact.valid">...</div>
@@ -32,6 +32,7 @@
       </div>
     </div>
   </div>
+
   <div class="form-group">
     <label for="comment">Comment</label>
     <textarea
@@ -43,12 +44,14 @@
       rows="10">
     </textarea>
   </div>
+
   <div class="checkbox">
     <label>
       <input type="checkbox" ngModel name="isSubscribed">
       Subscribe to mailing service.
     </label>
   </div>
+
   <div class="form-group">
     <label for="contactMethod">Contact Method.</label>
     <select
@@ -66,15 +69,18 @@
       </option>
     </select>
   </div>
+
   <div *ngFor="let method of contactMethods" class="radio">
     <label>
       <input ngModel type="radio" name="contactMethod" [value]="method.id">
       {{ method.name }}
     </label>
   </div>
+
   <p>
     {{ f.value | json }}
   </p>
+
   <button class="btn btn-primary" [disabled]="!f.valid">
     Submit
   </button>
