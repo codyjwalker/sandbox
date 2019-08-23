@@ -1,5 +1,7 @@
 <h2>Contact Form Example</h2>
-<form>
+<form
+  #f="ngForm"
+  (ngSubmit)="submit(f)">
   <div class="form-group">
     <label for="firstName">First Name</label>
     <input
