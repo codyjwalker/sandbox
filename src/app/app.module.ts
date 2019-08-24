@@ -1,26 +1,28 @@
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorsService } from './authors.service';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { InputFormatDirective } from './input-format.directive';
+import { LikeComponent } from './like/like.component';
+import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
+import { PanelComponent } from './panel/panel.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 import { TitleCaseComponent } from './title-case/title-case.component';
 import { TitleCasePipe } from './title-case.pipe';
-import { PanelComponent } from './panel/panel.component';
-import { LikeComponent } from './like/like.component';
-import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
-import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SignupFormComponent,
     TitleCaseComponent,
     TitleCasePipe,
     AuthorsComponent,
@@ -34,6 +36,7 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
     AngularFontAwesomeModule,
