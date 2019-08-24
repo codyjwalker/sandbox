@@ -7,6 +7,10 @@
       id="username" 
       type="text" 
       class="form-control">
+    <div *ngIf="username.pending">
+      Checking...
+      <span class="fa fa-spinner fa-spin"></span>
+    </div>
     <div 
       *ngIf="username.touched && username.invalid" 
       class="alert alert-danger">
@@ -19,6 +23,9 @@
       </div>
       <div *ngIf="username.errors.cannotContainSpace">
         Username cannot contain any spaces!
+      </div>
+      <div *ngIf="username.errors.shouldBeUnique">
+        Username taken! Please try a different one.
       </div>
     </div>
   </div>
