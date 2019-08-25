@@ -18,6 +18,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { TitleCaseComponent } from './title-case/title-case.component';
 import { TitleCasePipe } from './title-case.pipe';
 import { ZippyComponent } from './zippy/zippy.component';
+import { AnotherNewCourseFormComponent } from './another-new-course-form/another-new-course-form.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ZippyComponent } from './zippy/zippy.component';
     InputFormatDirective,
     ZippyComponent,
     ContactFormComponent,
-    NewCourseFormComponent
+    NewCourseFormComponent,
+    AnotherNewCourseFormComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

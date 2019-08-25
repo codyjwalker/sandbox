@@ -1,6 +1,14 @@
 <h1>SANDBOX</h1>
 <br><br><br>
 
+<!-- Example of a Form to change password. -->
+<app-change-password></app-change-password>
+<br><br><br>
+
+<!-- Example of another New Course Form showcasing FormArray -->
+<app-another-new-course-form></app-another-new-course-form>
+<br><br><br>
+
 <!-- Example of Reactive Form -->
 <signup-form></signup-form>
 <br><br><br>
@@ -14,6 +22,7 @@
 <br><br><br>
 
 <!-- Example of 'Zippy' Component. -->
+<h2>Zippy Component Example:</h2>
 <app-zippy title="Shipping Details">
   Some content regarding shipping details.
 </app-zippy>
@@ -23,16 +32,19 @@
 <br><br><br>
 
 <!-- Example of Creating Custom Directives -->
+<h2>Custom Directives Example:</h2>
 <input type="text" [appInputFormat]="'uppercase'">
 <br>
 <input type="text" [appInputFormat]="'lowercase'">
 <br><br><br>
 
 <!-- Exammple of Safe Traversal Operator -->
+<h2>Safe Traversal Operator Example:</h2>
 <span>{{ task.assignee?.firstName }} {{ task.assignee?.lastName }}</span>
 <br><br><br>
 
 <!-- Example of ngStyle with Save Buttons -->
+<h2>Save Button with ngStyle Example:</h2>
 <button
   [style.backgroundColor]="canSave ? 'blue' : 'gray'"
   [style.color]="canSave ? 'white' : 'black'"
@@ -47,6 +59,7 @@
 <br><br><br>
 
 <!-- Example of ngFor with course objects -->
+<h2>ngFor with Course Objects Example:</h2>
 <button (click)="loadCourses()">Load Courses</button>
 <ul>
   <li *ngFor="let course of courses3; trackBy: trackCourse; index as i">
@@ -60,6 +73,7 @@
 
 
 <!-- nav related things from Bootstrap -->
+<h2>Bootstrap nav-related Things:</h2>
 <ul class="nav nav-pills">
   <li class="nav-item">
     <a
@@ -94,8 +108,9 @@
 <br><br><br>
 
 
+<!-- Example of *ngIf and [hidden] -->
+<h2>ngIf and hidden Example:</h2>
 <!-- Only puts the respective dev in the DOM -->
-<br><br><br>
 <div
   *ngIf="courses.length > 0; then coursesList else noCourses">
 </div>
