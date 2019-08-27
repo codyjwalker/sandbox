@@ -35,8 +35,36 @@ export class PostsComponent {
     this.http.post(this.url, JSON.stringify(post))
       .subscribe(response => {
         post['id'] = response['id'];
+        /* This is where you should append 'post' to the 'posts' object
+         * so that the new post could be displayed, but due to deprication and
+         * API changes, I currently do not know how to.
+         */
         console.log(post);
     });
+  }
+
+  updatePost(post) {
+    this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true }))
+      .subscribe(response => {
+        console.log(response)
+      });
+    /*
+     * ABOVE 'patch' only sends { isRead: true } to the server, while below
+     * 'put' sends the entire post object to the server.
+     *
+     * this.http.put(this.url, JSON.stringify(post));
+     */
+  }
+
+  deletePost(post) {
+    this.http.delete(this.url + '/' + post.id)
+      .subscribe(response => {
+        /* This is where you should delete 'post' from the 'posts' object
+         * so that the old post would be removed and no longer displayed, but
+         * due to deprication and API changes, I currently do not know to to.
+         */
+        console.log(response);
+      });
   }
 
 }
