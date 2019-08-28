@@ -33,10 +33,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAll()
-    .subscribe(
-      response => {
-        this.thePosts = response;
-      });
+    .subscribe(posts => this.thePosts = posts);
   }
 
 
@@ -45,8 +42,8 @@ export class PostsComponent implements OnInit {
 
     this.service.create(post)
       .subscribe(
-        response => {
-          post['id'] = response['id'];
+        newPost => {
+          post['id'] = newPost['id'];
           this.thePosts.splice(0, 0, post);
           console.log(post);
         },
@@ -63,8 +60,8 @@ export class PostsComponent implements OnInit {
   updatePost(post) {
     this.service.update(post)
       .subscribe(
-        response => {
-          console.log(response)
+        updatedPost => {
+          console.log(updatedPost)
         });
     /*
      * ABOVE 'patch' only sends { isRead: true } to the server, while below
@@ -79,8 +76,8 @@ export class PostsComponent implements OnInit {
     //    TODO: FIGURE OUT WHY IT'S NOT THROWING ERROR IF UNCOMMENTED!
     this.service.delete(345)
       .subscribe(
-        response => {
-          console.log(response);
+        () => {
+          console.log('DELETED POST');
           let index = this.thePosts.indexOf(post);
           this.thePosts.splice(index, 1);
         },

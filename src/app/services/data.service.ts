@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { AppError } from '../common/app-error';
 import { BadInputError } from '../common/bad-input-error';
@@ -21,7 +22,7 @@ export class DataService {
 
   getAll() {
     try {
-      return this.http.get<Post[]>(this.url);
+      return this.http.get<Post[]>(this.url)
     } catch(e) {
       this.handleError(e);
     }
