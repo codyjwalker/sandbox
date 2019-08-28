@@ -30,8 +30,9 @@ export class DataService {
 
   create(resource) {
     try {
-      return throwError(new AppError());
-//      return this.http.post(this.url, JSON.stringify(resource));
+      // Uncomment below line to simulate an error.
+//      return throwError(new AppError());
+      return this.http.post(this.url, JSON.stringify(resource));
     } catch (e) {
       this.handleError(e);
     }
@@ -52,14 +53,13 @@ export class DataService {
   with the try-catch block, no error is ever caught!
   */
   delete(id) {
-    return throwError(new AppError());
-    /*
+    // Uncomment below line to simulate a deletion error.
+//    return throwError(new AppError());
     try {
       return this.http.delete(this.url + '/' + id);
     } catch(e) {
       this.handleError(e);
     }
-    */
 //      .catch((error: Response) => {
 //      });
   }
