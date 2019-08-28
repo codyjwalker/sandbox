@@ -32,7 +32,7 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getPosts()
+    this.service.getAll()
     .subscribe(
       response => {
         this.thePosts = response;
@@ -43,7 +43,7 @@ export class PostsComponent implements OnInit {
   createPost(input: HTMLInputElement) {
     let post = { title: input.value };
 
-    this.service.createPost(post)
+    this.service.create(post)
       .subscribe(
         response => {
           post['id'] = response['id'];
@@ -61,7 +61,7 @@ export class PostsComponent implements OnInit {
   }
 
   updatePost(post) {
-    this.service.updatePost(post)
+    this.service.update(post)
       .subscribe(
         response => {
           console.log(response)
@@ -77,7 +77,7 @@ export class PostsComponent implements OnInit {
   deletePost(post) {
 //    this.service.deletePost(post.id)
     //    TODO: FIGURE OUT WHY IT'S NOT THROWING ERROR IF UNCOMMENTED!
-    this.service.deletePost(345)
+    this.service.delete(345)
       .subscribe(
         response => {
           console.log(response);
