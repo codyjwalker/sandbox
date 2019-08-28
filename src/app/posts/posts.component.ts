@@ -36,10 +36,6 @@ export class PostsComponent implements OnInit {
     .subscribe(
       response => {
         this.thePosts = response;
-      },
-      (error: Response) => {
-        alert('An unexpected error has occurred!!!!');
-        console.log(error);
       });
   }
 
@@ -59,8 +55,7 @@ export class PostsComponent implements OnInit {
 //            this.form.setErrors(error.originalError);
           }
           else {
-            alert('An unexpected error has occurred!');
-            console.log(error);
+            throw error;
           }
         });
   }
@@ -70,10 +65,6 @@ export class PostsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response)
-        },
-        (error: Response) => {
-          alert('An unexpected error has occurred!');
-          console.log(error);
         });
     /*
      * ABOVE 'patch' only sends { isRead: true } to the server, while below
@@ -98,8 +89,7 @@ export class PostsComponent implements OnInit {
             alert('This post has already been deleted!');
           }
           else {
-            alert('An unexpected error has occurred!');
-            console.log(error);
+            throw error;
           }
         });
   }

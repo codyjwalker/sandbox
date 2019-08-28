@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AnotherNewCourseFormComponent } from './another-new-course-form/another-new-course-form.component';
 import { AppComponent } from './app.component';
+import { AppErrorHandler } from './common/app-error-handler';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorsService } from './authors.service';
@@ -53,6 +54,7 @@ import { ZippyComponent } from './zippy/zippy.component';
   ],
   providers: [
     AuthorsService,
+    { provide: ErrorHandler, useClass: AppErrorHandler },
     PostService
   ],
   bootstrap: [AppComponent]
