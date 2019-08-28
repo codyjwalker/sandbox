@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AppError } from '../common/app-error';
+import { BadInputError } from '../common/bad-input-error';
+import { NotFoundError } from '../common/not-found-error';
 import { PostService } from '../services/post.service';
 
 /*
@@ -11,6 +14,9 @@ import { PostService } from '../services/post.service';
  *  - What has remained the same
  */
 
+export interface Post {
+  title: String;
+}
 
 @Component({
   selector: 'app-posts',
@@ -19,7 +25,7 @@ import { PostService } from '../services/post.service';
 })
 export class PostsComponent implements OnInit {
 
-  posts: Object;
+  thePosts: Post[];
 
 
   constructor(private service: PostService) {
@@ -29,10 +35,10 @@ export class PostsComponent implements OnInit {
     this.service.getPosts()
     .subscribe(
       response => {
-        this.posts = response;
+        this.thePosts = response;
       },
       (error: Response) => {
-        alert('An unexpected error has occurred!');
+        alert('An unexpected error has occurred!!!!');
         console.log(error);
       });
   }
@@ -45,15 +51,12 @@ export class PostsComponent implements OnInit {
       .subscribe(
         response => {
           post['id'] = response['id'];
-          /* This is where you should append 'post' to the 'posts' object
-           * so that the new post could be displayed, but due to deprication and
-           * API changes, I currently do not know how to.
-           */
+          this.thePosts.splice(0, 0, post);
           console.log(post);
         },
-        (error: Response) => {
-          if (error.status == 400) {
-            //this.form.setErrors(error.json());
+        (error: AppError) => {
+          if (error instanceof BadInputError) {
+//            this.form.setErrors(error.originalError);
           }
           else {
             alert('An unexpected error has occurred!');
@@ -82,17 +85,16 @@ export class PostsComponent implements OnInit {
 
   deletePost(post) {
 //    this.service.deletePost(post.id)
+    //    TODO: FIGURE OUT WHY IT'S NOT THROWING ERROR IF UNCOMMENTED!
     this.service.deletePost(345)
       .subscribe(
         response => {
-          /* This is where you should delete 'post' from the 'posts' object
-           * so that the old post would be removed and no longer displayed, but
-           * due to deprication and API changes, I currently do not know to to.
-           */
           console.log(response);
+          let index = this.thePosts.indexOf(post);
+          this.thePosts.splice(index, 1);
         },
-        (error: Response) => {
-          if (error.status === 404) {
+        (error: AppError) => {
+          if (error instanceof NotFoundError) {
             alert('This post has already been deleted!');
           }
           else {
