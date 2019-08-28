@@ -30,7 +30,8 @@ export class DataService {
 
   create(resource) {
     try {
-    return this.http.post(this.url, JSON.stringify(resource));
+      return throwError(new AppError());
+//      return this.http.post(this.url, JSON.stringify(resource));
     } catch (e) {
       this.handleError(e);
     }
@@ -38,19 +39,27 @@ export class DataService {
 
   update(resource) {
     try {
-    return this.http.patch(this.url + '/' + resource.id, JSON.stringify(
-      { isRead: true }));
+      return this.http.patch(this.url + '/' + resource.id, JSON.stringify(
+        { isRead: true }));
     } catch (e) {
       this.handleError(e);
     }
   }
 
+  /* TODO: Investigate if this is where the problem with not throwing errors
+  upon deleting a nonexistent post.... returning throwError here throws
+  the error in the end!  But, if we try to delete an invalid id and proceed
+  with the try-catch block, no error is ever caught!
+  */
   delete(id) {
+    return throwError(new AppError());
+    /*
     try {
       return this.http.delete(this.url + '/' + id);
     } catch(e) {
       this.handleError(e);
     }
+    */
 //      .catch((error: Response) => {
 //      });
   }

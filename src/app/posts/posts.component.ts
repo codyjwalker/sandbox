@@ -39,16 +39,25 @@ export class PostsComponent implements OnInit {
 
   createPost(input: HTMLInputElement) {
     let post = { title: input.value };
+    // Optimistic Update, update right away.
+    this.thePosts.splice(0, 0, post);
+
+    input.value = '';
 
     this.service.create(post)
       .subscribe(
         newPost => {
           post['id'] = newPost['id'];
-          this.thePosts.splice(0, 0, post);
+          // Pessimistic Update, only update on response from server.
+//          this.thePosts.splice(0, 0, post);
           console.log(post);
         },
         (error: AppError) => {
+          // For Optimistic Update, rollback on failure.
+          this.thePosts.splice(0, 1);
+
           if (error instanceof BadInputError) {
+            // Possibly to be used later for form object?
 //            this.form.setErrors(error.originalError);
           }
           else {
@@ -72,16 +81,23 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post) {
+    // Optimistic update.
+    let index = this.thePosts.indexOf(post);
+    this.thePosts.splice(index, 1);
 //    this.service.deletePost(post.id)
     //    TODO: FIGURE OUT WHY IT'S NOT THROWING ERROR IF UNCOMMENTED!
     this.service.delete(345)
       .subscribe(
-        () => {
-          console.log('DELETED POST');
-          let index = this.thePosts.indexOf(post);
-          this.thePosts.splice(index, 1);
-        },
+        null,
+//        () => {
+//          console.log('DELETED POST');
+          // Pessimistic update.
+//          let index = this.thePosts.indexOf(post);
+//          this.thePosts.splice(index, 1);
+//        },
         (error: AppError) => {
+          this.thePosts.splice(index, 0, post);
+
           if (error instanceof NotFoundError) {
             alert('This post has already been deleted!');
           }
