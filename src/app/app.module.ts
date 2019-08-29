@@ -14,6 +14,8 @@ import { AuthorsService } from './authors.service';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { GithubFollowersService } from './services/github-followers.service';
 import { InputFormatDirective } from './input-format.directive';
 import { LikeComponent } from './like/like.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
@@ -41,7 +43,8 @@ import { ZippyComponent } from './zippy/zippy.component';
     NewCourseFormComponent,
     AnotherNewCourseFormComponent,
     ChangePasswordComponent,
-    PostsComponent
+    PostsComponent,
+    GithubFollowersComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { ZippyComponent } from './zippy/zippy.component';
   ],
   providers: [
     AuthorsService,
+    GithubFollowersService,
     { provide: ErrorHandler, useClass: AppErrorHandler },
     PostService
   ],

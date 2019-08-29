@@ -25,7 +25,7 @@ export interface Post {
 })
 export class PostsComponent implements OnInit {
 
-  thePosts: Post[];
+  thePosts: any[];
 
 
   constructor(private service: PostService) {
